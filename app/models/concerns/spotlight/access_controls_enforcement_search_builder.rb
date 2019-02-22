@@ -28,7 +28,7 @@ module Spotlight
     private
 
     def current_exhibit
-      scope.current_exhibit
+      blacklight_config.current_exhibit
     end
   end
 end
