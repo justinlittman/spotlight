@@ -52,8 +52,9 @@ module Spotlight
     # setup within their index analyzer. This will ensure that this method returns
     # results when a partial match is passed in the "q" parameter.
     def autocomplete
-      search_params = params.merge(search_field: Spotlight::Engine.config.autocomplete_search_field)
-      (_, @document_list) = search_service.search_results(search_params.merge(public: true, rows: 100))
+      (_, @document_list) = search_service.search_results do |builder|
+        builder.with(builder.blacklight_params.merge(search_field: Spotlight::Engine.config.autocomplete_search_field, public: true, rows: 100))
+      end
 
       respond_to do |format|
         format.json do
