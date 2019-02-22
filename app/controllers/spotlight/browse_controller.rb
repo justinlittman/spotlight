@@ -26,7 +26,7 @@ module Spotlight
       respond_to do |format|
         format.html
         format.json do
-          @presenter = Blacklight::JsonPresenter.new(@response, @document_list, facets_from_request, blacklight_config)
+          @presenter = Blacklight::JsonPresenter.new(@response, blacklight_config)
           render template: 'catalog/index'
         end
       end
