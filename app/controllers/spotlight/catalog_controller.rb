@@ -65,7 +65,7 @@ module Spotlight
     def admin
       add_breadcrumb t(:'spotlight.curation.sidebar.header'), exhibit_dashboard_path(@exhibit)
       add_breadcrumb t(:'spotlight.curation.sidebar.items'), admin_exhibit_catalog_path(@exhibit)
-      (@response, @document_list) = search_service.search_results(params)
+      (@response, @document_list) = search_service.search_results
       @filters = params[:f] || []
 
       respond_to do |format|
