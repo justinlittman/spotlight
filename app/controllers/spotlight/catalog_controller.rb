@@ -119,14 +119,14 @@ module Spotlight
       end
     end
 
-    protected
-
     # TODO: move this out of app/helpers/blacklight/catalog_helper_behavior.rb and into blacklight/catalog.rb
     # rubocop:disable Naming/PredicateName
     def has_search_parameters?
       !params[:q].blank? || !params[:f].blank? || !params[:search_field].blank?
     end
     # rubocop:enable Naming/PredicateName
+
+    protected
 
     def attach_breadcrumbs
       # The "q: ''" is necessary so that the breadcrumb builder recognizes that a path like this:
