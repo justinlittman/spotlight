@@ -5,6 +5,7 @@ module Spotlight
   class BrowseController < Spotlight::ApplicationController
     load_and_authorize_resource :exhibit, class: 'Spotlight::Exhibit'
     include Spotlight::Base
+    include Spotlight::SearchHelper
     include Blacklight::Facet
 
     load_and_authorize_resource :search, except: :index, through: :exhibit, parent: false
@@ -21,7 +22,9 @@ module Spotlight
     end
 
     def show
-      @response, @document_list = search_results(search_query)
+      @response, @document_list = search_service.search_results do |builder|
+        builder.with(search_query)
+      end
 
       respond_to do |format|
         format.html

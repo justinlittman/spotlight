@@ -157,7 +157,7 @@ module Spotlight
 
     def setup_next_and_previous_documents_from_browse_category
       index = search_session['counter'].to_i - 1
-      response, documents = get_previous_and_next_documents_for_search index, current_browse_category.query_params.with_indifferent_access
+      response, documents = search_service.previous_and_next_documents_for_search index, current_browse_category.query_params.with_indifferent_access
 
       return unless response
 
