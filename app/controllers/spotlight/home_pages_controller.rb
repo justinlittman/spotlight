@@ -35,6 +35,8 @@ module Spotlight
     def clone
       super
     end
+
+    # Copied from blacklight to avoid bringing in all of Blacklight::Catalog
     DEFAULT_FACET_LIMIT = 10
 
     # Look up facet limit for given facet_field. Will look at config, and
