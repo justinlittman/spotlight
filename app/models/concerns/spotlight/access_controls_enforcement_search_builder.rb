@@ -10,7 +10,7 @@ module Spotlight
     # Adds a filter that excludes resources that have been marked as not-visible
     def apply_permissive_visibility_filter(solr_params)
       return unless current_exhibit
-      return if !blacklight_params[:public] && scope&.controller.respond_to?(:can?) && scope&.controller.can?(:curate, current_exhibit)
+      return if !blacklight_params[:public] && scope&.context&.key?(:current_ability) && scope.context[:current_ability].can?(:curate, current_exhibit)
 
       solr_params.append_filter_query "-#{blacklight_config.document_model.visibility_field(current_exhibit)}:false"
     end
