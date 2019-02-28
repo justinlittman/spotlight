@@ -41,7 +41,7 @@ Spotlight.Block.Resources = (function(){
             this._itemPanelIiifFields(index, data),
             '<input data-property="weight" type="hidden" name="item[' + index + '][weight]" value="' + data.weight + '" />',
             '<div class="dd-handle dd3-handle"><%= i18n.t("blocks:resources:panel:drag") %></div>',
-              '<div class="dd3-content panel">',
+              '<div class="dd3-content card">',
                 '<div class="card-header item-grid">',
                   '<div class="checkbox">',
                     '<input name="item[' + index + '][display]" type="hidden" value="false" />',

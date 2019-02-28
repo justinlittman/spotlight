@@ -27,7 +27,7 @@ feature 'Solr Document Block', feature: true, versioning: true, default_max_wait
 
   scenario 'it should allow you to add a solr document to the widget', js: true do
     fill_in_solr_document_block_typeahead_field with: 'dq287tq6352'
-    within(:css, '.panel') do
+    within(:css, '.card') do
       expect(page).to have_content "L'AMERIQUE"
     end
 
@@ -85,7 +85,7 @@ feature 'Solr Document Block', feature: true, versioning: true, default_max_wait
   scenario 'it should allow you toggle visibility of solr documents', js: true do
     fill_in_solr_document_block_typeahead_field with: 'dq287tq6352'
 
-    within(:css, '.panel') do
+    within(:css, '.card') do
       uncheck 'Display?'
     end
 
@@ -188,7 +188,7 @@ feature 'Solr Document Block', feature: true, versioning: true, default_max_wait
   scenario 'round-trip data', js: true do
     fill_in_solr_document_block_typeahead_field with: 'dq287tq6352'
 
-    within(:css, '.panel') do
+    within(:css, '.card') do
       uncheck 'Display?'
     end
 
@@ -210,7 +210,7 @@ feature 'Solr Document Block', feature: true, versioning: true, default_max_wait
 
     click_on 'Edit'
 
-    expect(page).to have_selector '.panel', count: 2, visible: true
+    expect(page).to have_selector '.card', count: 2, visible: true
 
     # for some reason, the text area above isn't getting filled in
     # expect(page).to have_selector ".st-text-block", text: "zzz"
