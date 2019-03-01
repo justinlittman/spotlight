@@ -13,7 +13,7 @@ module Spotlight
       @published_exhibits = @published_exhibits.tagged_with(params[:tag]) if params[:tag]
 
       if @exhibits.one?
-        redirect_to @exhibits.first
+        redirect_to @exhibits.first, flash: flash
       else
         render layout: 'spotlight/home'
       end
